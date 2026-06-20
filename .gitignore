@@ -1,0 +1,12 @@
+# Среда разработки JetBrains (GoLand, IntelliJ IDEA)
+.idea/
+*.iml
+
+# Временные бинарные файлы Go
+/dist/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
