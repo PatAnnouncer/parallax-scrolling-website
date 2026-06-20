@@ -54,7 +54,7 @@ body, html {
 	text-shadow: 0 0 15px #9e7d35;
 }
 
-/* НОВОЕ ПРАВИЛО: Прыжок на передний план при наведении */
+
 .layer__header:hover {
 	z-index: 10; /* Временно перекрываем вообще все слои леса (z-index 2 и 3) */
 }
@@ -68,12 +68,14 @@ body, html {
 }
 
 .layers__front {
-	background-image: url('../img/layer-front.png');
-	z-index: 3;
-	background-position: bottom;
-	transform: translate3d(0, calc(var(--scrollTOP) / 5.7), 0);
-	pointer-events: none; /* НОВОЕ: мышка проходит сквозь передние кусты */
-
+    background-image: url('../img/layer-front.png');
+    z-index: 3;
+    background-position: bottom;
+    transform: translate3d(0, calc(var(--scrollTOP) / 5.7), 0);
+    pointer-events: none; /* НОВОЕ: мышка проходит сквозь передние кусты */
+    
+    /* СДВИГ ВНИЗ: переопределяем базовый top: -5% */
+    top: 13%; /* Поиграйся с этой цифрой: 0%, 2%, 5% или даже 10vh, пока кусты не встанут идеально */
 }
 
 .layers__title {
