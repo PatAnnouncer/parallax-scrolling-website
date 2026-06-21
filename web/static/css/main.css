@@ -59,23 +59,33 @@ body, html {
 	z-index: 10; /* Временно перекрываем вообще все слои леса (z-index 2 и 3) */
 }
 
+/* --- БАЗОВЫЕ СТИЛИ ДЛЯ ШИРОКИХ ЭКРАНОВ И ПК --- */
 .layers__middle {
-	background-image: url('../img/layer-middle.png');
-	z-index: 2; /* Стволы перекрывают текст */
-	transform: translate3d(0, calc(var(--scrollTOP) / 2.5), 0);
-	pointer-events: none; /* НОВОЕ: мышка проходит сквозь прозрачные пиксели */
-
-}
+    background-image: url('../img/layer-middle.png');
+    z-index: 2; 
+    transform: translate3d(0, calc(var(--scrollTOP) / 2.5), 0);
+    pointer-events: none; 
+    /* Мы убрали отсюда background-position: bottom */
+} 
 
 .layers__front {
     background-image: url('../img/layer-front.png');
     z-index: 3;
-    background-position: bottom;
     transform: translate3d(0, calc(var(--scrollTOP) / 5.7), 0);
-    pointer-events: none; /* НОВОЕ: мышка проходит сквозь передние кусты */
-    
+    pointer-events: none; 
+    /* Мы убрали отсюда top и background-position */
+}
 
-    top: 13%;
+/* --- МАГИЯ ТОЛЬКО ДЛЯ УЗКИХ ЭКРАНОВ И ТЕЛЕФОНОВ --- */
+@media (max-width: 768px), (max-aspect-ratio: 1/1) {
+    .layers__middle {
+        background-position: bottom;
+        height: 125%;
+        top: -10%;
+    }
+    .layers__front {
+        background-position: bottom;
+    }
 }
 
 .layers__title {
